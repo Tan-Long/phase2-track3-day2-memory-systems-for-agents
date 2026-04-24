@@ -1,0 +1,22 @@
+[
+  {
+    "text": "Docker containers communicate on custom networks using the bridge driver. Create a network with `docker network create mynet`, then run containers with `--network mynet`. Containers resolve each other by container name as hostname. If you get a 'network not found' error, ensure the network exists with `docker network ls`. Common fix: remove stale networks with `docker network prune` and recreate.",
+    "metadata": {"title": "Docker Networking", "topic": "docker"}
+  },
+  {
+    "text": "Python virtual environments isolate project dependencies. Create with `python -m venv .venv`, activate on Unix with `source .venv/bin/activate`, on Windows with `.venv\\Scripts\\activate`. Install packages with `pip install -r requirements.txt`. To deactivate, run `deactivate`. If packages conflict, delete the .venv folder and recreate. Always add .venv/ to .gitignore.",
+    "metadata": {"title": "Python Virtual Environments", "topic": "python"}
+  },
+  {
+    "text": "LangGraph error handling uses the standard Python exception pattern. Wrap nodes in try/except and return an error state with `{'error': str(e)}`. For retry logic, use exponential backoff with `tenacity`. For state rollback, implement a checkpoint saver that snapshots state before each node. If a node fails, restore from the last checkpoint.",
+    "metadata": {"title": "LangGraph Error Handling", "topic": "langgraph"}
+  },
+  {
+    "text": "FAISS requires all vectors to have the same dtype (float32). If you get a dtype mismatch error, convert vectors with `vectors.astype('float32')` before creating the index. For inner product search, use `faiss.IndexFlatIP`. For L2 distance, use `faiss.IndexFlatL2`. Normalize vectors for cosine similarity with `faiss.normalize_L2(vectors)`.",
+    "metadata": {"title": "FAISS Dtype Issues", "topic": "faiss"}
+  },
+  {
+    "text": "Claude API rate limits: Tier 1 allows 1,000 requests per minute, 80,000 tokens per minute. Tier 2 allows 5,000 RPM, 400,000 TPM. If you exceed limits, the API returns a 429 error with a Retry-After header. Implement exponential backoff starting at 1 second. Use message batching for non-interactive work. Monitor usage at console.anthropic.com.",
+    "metadata": {"title": "Claude API Rate Limits", "topic": "claude"}
+  }
+]
